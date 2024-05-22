@@ -1,19 +1,15 @@
-function hitungJumlahKata(kalimat) {
-  kalimat = kalimat.replace(/[^a-zA-Z0-9\s]/g, "");
+function countNonAlphabeticChars(input) {
+  let nonAlphabeticRegex = /[^a-zA-Z\s]/g;
 
-  var kata = kalimat.split(" ");
+  let matches = input.match(nonAlphabeticRegex);
 
-  kata = kata.filter(function (kata) {
-    return kata.trim() !== "";
-  });
-
-  return kata.length;
+  return matches ? matches.length : 0;
 }
 
-var kalimat1 = "Saat meng*ecat tembok, Agung dib_antu oleh Raihan.";
-var kalimat2 = "Berapa u(mur minimal[ untuk !mengurus ktp?";
-var kalimat3 = "Masing-masing anak mendap(atkan uang jajan ya=ng be&rbeda.";
+let inputA = "Saat meng*ecat tembok, Agung dib_antu oleh Raihan.";
+let inputB = "Berapa u(mur minimal[ untuk !mengurus ktp?";
+let inputC = "Masing-masing anak mendap(atkan uang jajan ya=ng be&rbeda.";
 
-console.log(hitungJumlahKata(kalimat1));
-console.log(hitungJumlahKata(kalimat2));
-console.log(hitungJumlahKata(kalimat3));
+console.log(countNonAlphabeticChars(inputA));
+console.log(countNonAlphabeticChars(inputB));
+console.log(countNonAlphabeticChars(inputC));
